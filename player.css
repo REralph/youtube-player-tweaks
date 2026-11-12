@@ -1,0 +1,155 @@
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+
+/* Colour of the watched part of the bar */
+.ytp-play-progress {
+    background: #5c6b73 !important;           /* <-- watched-part colour (grey) */
+}
+
+/* Colour of the ball (current-time dot) only */
+.ytp-scrubber-button {
+    background: #8b1e1e !important;           /* <-- ball colour (dark red) */
+}
+
+/* Thickness + position */
+.ytp-progress-bar-container {
+    height: 2px !important;                   /* <-- bar thickness */
+    transform: translateY(18px) !important;   /* <-- bar position: bigger = lower */
+}
+
+/* Fade (full brightness on hover) */
+.ytp-progress-bar-container {
+    opacity: 0.5 !important;                  /* <-- bar fade: higher = brighter */
+}
+.ytp-progress-bar-container:hover {
+    opacity: 1 !important;
+}
+
+/* Hover/click zone, bar always centred in the middle */
+.ytp-progress-bar {
+    --hover-zone: 12px;                       /* <-- hover zone size: bigger = easier to grab */
+}
+.ytp-progress-bar::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: calc(-1 * var(--hover-zone)) !important;
+    bottom: calc(-1 * var(--hover-zone)) !important;
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   BUTTONS (play, volume, settings, fullscreen, etc.)
+   ========================================================= */
+
+/* Position */
+.ytp-chrome-controls {
+    transform: translateY(10px) !important;   /* <-- buttons position: bigger = lower */
+}
+
+/* Fade (full brightness on hover) */
+.ytp-chrome-controls .ytp-button {
+    opacity: 0.42 !important;                 /* <-- buttons fade: higher = brighter */
+}
+.ytp-chrome-controls .ytp-button:hover {
+    opacity: 1 !important;
+}
+
+
+/* =========================================================
+   TIME TEXT (0:42 / 10:15)
+   ========================================================= */
+
+.ytp-time-display {
+    opacity: 0.8 !important;                  /* <-- time brightness: higher = brighter */
+    transform: translateY(2px) !important;    /* <-- time position: bigger = lower */
+}
+.ytp-time-display:hover {
+    opacity: 1 !important;
+}
+
+
+/* =========================================================
+   GENERAL PLAYER
+   ========================================================= */
+
+/* Hide the big play/pause icon that flashes in the centre */
+.ytp-bezel {
+    display: none !important;
+}
+
+/* Remove fade delays on controls and shadows */
+.ytp-chrome-bottom,
+.ytp-chrome-top,
+.ytp-gradient-bottom,
+.ytp-gradient-top {
+    transition: none !important;
+}
+
+
+/* =========================================================
+   YOUTUBE PAGE (replaces Improve YouTube switches)
+   ========================================================= */
+
+/* YouTube logo: always invisible (even on hover), but still clickable = home page */
+ytd-topbar-logo-renderer,
+ytd-topbar-logo-renderer:hover {
+    opacity: 0 !important;                    /* <-- 0 = never seen */
+}
+
+/* Wider invisible click area: stretches the home-page link further to the right */
+ytd-topbar-logo-renderer a#logo {
+    position: relative !important;
+}
+ytd-topbar-logo-renderer a#logo::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: -100px !important;                 /* <-- extra width to the right: bigger = wider */
+}
+
+/* Hide the microphone / voice search button */
+#voice-search-button {
+    display: none !important;
+}
+
+/* 6 thumbnails per row on the home page */
+ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 6 !important;   /* <-- thumbnails per row */
+}
+
+/* Save button: icon only, no "Save" text */
+button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content {
+    display: none !important;
+}
+
+/* Thumbnail hover previews: always hide subtitles/captions */
+.ytp-inline-preview-mode .ytp-caption-window-container,
+#inline-preview-player .ytp-caption-window-container,
+#video-preview .ytp-caption-window-container,
+ytd-video-preview .ytp-caption-window-container {
+    display: none !important;
+}
+
+/* Hide YouTube logo on videos embedded in other websites */
+.ytp-youtube-button,
+.ytp-watermark {
+    display: none !important;
+}
+
+/* Remove the "+ Create" button from the top bar */
+#masthead ytd-button-renderer:has(button[aria-label="Create"]),
+#masthead #buttons ytd-button-renderer:has(path[d^="M12 3a1 1 0 00-1 1v7H4"]) {   /* plus icon: works in any language */
+    display: none !important;
+}
+
+/* Notification count bubble: grey instead of red */
+ytd-notification-topbar-button-renderer .ytSpecIconBadgeShapeBadge {
+    background-color: #5c6b73 !important;     /* <-- bubble colour (same grey as the progress bar) */
+    color: #fff !important;                   /* <-- number colour */
+}

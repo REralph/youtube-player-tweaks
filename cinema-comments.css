@@ -1,0 +1,47 @@
+/* =========================================================
+   CINEMA-MODE COMMENTS PANEL
+   ========================================================= */
+
+:root {
+    --ytpt-panel-width: 420px;                /* <-- comments panel width */
+    --ytpt-panel-top: 56px;                   /* set by the script (top of the video) */
+}
+
+/* The Comments button only shows in cinema (theater) mode */
+html:not(.ytpt-theater) #ytpt-comments-btn {
+    display: none !important;
+}
+#ytpt-comments-btn svg {
+    fill: #fff;
+}
+html.ytpt-comments-open #ytpt-comments-btn {
+    opacity: 1 !important;                    /* full brightness while the panel is open */
+}
+
+/* Make room on the right: the video shrinks to sit beside the panel */
+html.ytpt-comments-open ytd-watch-flexy[theater] #full-bleed-container {
+    width: calc(100% - var(--ytpt-panel-width)) !important;
+    max-width: calc(100% - var(--ytpt-panel-width)) !important;
+}
+
+/* Hide the recommendations column while the panel covers it (stops it showing through) */
+html.ytpt-comments-open ytd-watch-flexy[theater] #secondary {
+    visibility: hidden !important;
+}
+
+/* Comments become a panel on the right of the video */
+html.ytpt-comments-open ytd-watch-flexy[theater] #comments {
+    position: fixed !important;
+    top: var(--ytpt-panel-top) !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: var(--ytpt-panel-width) !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;  /* scrolling comments won't scroll the page */
+    z-index: 2000 !important;
+    background: var(--yt-spec-base-background, #0f0f0f) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
