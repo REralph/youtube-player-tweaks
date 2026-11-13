@@ -8,6 +8,12 @@
 A small Firefox extension that restyles the YouTube video player and adds a **Comments** button for
 cinema (theatre) mode, so you can read the comments beside a large video instead of scrolling below it.
 
+![YouTube player in theatre mode with the extension's Comments button left of the Autoplay switch](docs/screenshots/player.jpg)
+
+*Theatre mode with the extension loaded: the restyled progress bar and scrubber, and the Comments button
+(speech bubble) left of the Autoplay switch. Video: "Big Buck Bunny" © Blender Foundation,
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).*
+
 ## Features
 
 - **Player styling**: custom colours for the progress bar, the watched part and the scrubber dot,
@@ -33,8 +39,10 @@ cinema (theatre) mode, so you can read the comments beside a large video instead
 
 ### Try it (until Firefox restarts)
 
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on…** and pick `manifest.json` from this folder.
+1. Download `youtube-player-tweaks-1.0.7-unsigned.zip` from the
+   [latest release](https://github.com/REralph/youtube-player-tweaks/releases/latest) (or clone this repository).
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on…** and pick the downloaded zip (or `manifest.json` in a clone).
 
 ### Install permanently
 
